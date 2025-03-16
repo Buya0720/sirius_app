@@ -6,10 +6,11 @@
     <title>Gift Box</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./styles/gift.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-gray-900 min-h-screen flex flex-col">
     <!-- Logo Header -->
-    <header class="max-w-6xl w-full mx-auto mb-4">
+    <header class="max-w-6xl w-full mx-auto mb-4 px-4">
         <div class="flex items-center">
             <a href="index.html" class="inline-block hover:scale-105 transition-transform focus:outline-none rounded-lg">
                 <img 
@@ -29,9 +30,9 @@
         </div>
 
         <!-- Gift Box Container -->
-        <div class="flex flex-col items-center mt-12 space-y-8">
-            <div class="w-full flex justify-center">
-                <div class="box">
+        <div class="flex flex-col items-center mt-12 space-y-8 w-full">
+            <div class="w-full flex justify-center relative gift-container">
+                <div class="box cursor-pointer" onclick="toggleGift()">
                     <div class="box-body">
                         <span class="comment block mb-4">This block will show the comments you leave for yourself</span>
                         <div class="box-lid">
@@ -44,12 +45,21 @@
 
         <!-- Go Back Button -->
         <div class="mt-20 w-full max-w-[150px]">
-          <a href="IdentifyEmo.html" 
-             class="w-full px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 
-                    transition-colors shadow-lg flex items-center justify-center">
-              ← Go Back
-          </a>
-      </div>
+            <a href="identifyEmo.html" 
+               class="w-full px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 
+                      transition-colors shadow-lg flex items-center justify-center">
+                ← Go Back
+            </a>
+        </div>
     </div>
+
+    <script>
+        function toggleGift() {
+            const box = document.querySelector('.box');
+            const comment = document.querySelector('.comment');
+            box.classList.toggle('opened');
+            comment.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
